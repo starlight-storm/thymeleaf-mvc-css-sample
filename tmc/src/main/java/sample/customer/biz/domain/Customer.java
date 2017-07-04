@@ -47,10 +47,6 @@ public class Customer implements java.io.Serializable {
         // ドメイン名が「ng.foo.baz」であれば使用不可のアドレスと見なす
         return emailAddress.matches(".*@ng.foo.baz$");
     }
-
-    public boolean isFreeEmail() {
-        // ドメイン名が「free.foo.baz」であればフリーメールのアドレスと見なす
-    	return emailAddress.matches(".*@free.foo.baz$");
-    }
+    
 	private static final long serialVersionUID = 3428490997353904743L;
 }

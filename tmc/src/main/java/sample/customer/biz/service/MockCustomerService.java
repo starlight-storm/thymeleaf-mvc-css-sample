@@ -1,7 +1,8 @@
 package sample.customer.biz.service;
 
-import static sample.customer.values.CustomerRankValues.*;
-import static sample.customer.values.CustomerSexValues.*;
+import static sample.customer.values.CustomerRankValues.GOLD;
+import static sample.customer.values.CustomerRankValues.SILVER;
+import static sample.customer.values.CustomerSexValues.MALE;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;

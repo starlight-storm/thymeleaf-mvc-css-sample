@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <title>入力画面</title>
 </head>
 <body>
-<h1>入力画面</h1>
-<form method="post" th:object="${editCustomer}" class="form-horizontal cst-form-inputform">
-<dl>
-  <dt th:text="#{name}">NAME</dt>
-  <dd>
-    <input type="text" th:field="*{name}" />
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
-  </dd>
-  <dt th:text="#{address}">ADDRESS</dt>
-  <dd>
-    <input type="text" th:field="*{address}" />
-    <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</span>
-  </dd>
-  <dt th:text="#{emailAddress}">E-Mail</dt>
-  <dd>
-    <input type="text" th:field="*{emailAddress}" />
-    <span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}">E-Mail Error</span>
-	<!-- TODO: これ、うまくいかない 
-    <span th:if="${#fields.hasErrors('ngEmail')}" th:errors="*{emailAddress}">E-Mail Error</span>
-    -->
-  </dd>
-  <dt th:text="#{rank}">RANK</dt>
-  <dd>
-    <select th:field="*{rank}">
-        <option th:each="value : ${@vh.values('CustomerRankValues')}"
-                th:value="${value.getValue()}"
-                th:text="${value.getText()}">シルバー</option>
-    </select>
-  </dd>
-  <dt th:text="#{sex}">SEX</dt>
-  <dd th:each="value : ${@vh.values('CustomerSexValues')}">
-      <input type="radio" th:field="*{sex}" th:value="${value.getValue()}" />
-      <label th:for="${#ids.prev('sex')}" th:text="${value.getText()}">性別</label>
-  </dd>
-</dl>
-<button type="submit" name="_event_proceed">次へ</button>
-<!-- <input type="submit" name="_event_proceed" value="次へ" /> -->
-</form>
+	<h1>入力画面</h1>
+	<form method="post" th:object="${editCustomer}"
+		class="form-horizontal cst-form-inputform">
+		<dl>
+			<dt th:text="#{name}">NAME</dt>
+			<dd>
+				<input type="text" th:field="*{name}" /> <span
+					th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name
+					Error</span>
+			</dd>
+			<dt th:text="#{address}">ADDRESS</dt>
+			<dd>
+				<input type="text" th:field="*{address}" /> <span
+					th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address
+					Error</span>
+			</dd>
+			<dt th:text="#{emailAddress}">E-Mail</dt>
+			<dd>
+				<input type="text" th:field="*{emailAddress}" />
+				<span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}">E-Mail Error</span> 
+				<span th:if="${#fields.hasErrors('ngEmail')}" th:errors="*{ngEmail}">E-Mail Error</span>
+			</dd>
+			<dt th:text="#{rank}">RANK</dt>
+			<dd>
+				<select th:field="*{rank}">
+					<option th:each="value : ${@vh.values('CustomerRankValues')}"
+						th:value="${value.getValue()}" th:text="${value.getText()}">シルバー</option>
+				</select>
+			</dd>
+			<dt th:text="#{sex}">SEX</dt>
+			<dd th:each="value : ${@vh.values('CustomerSexValues')}">
+				<input type="radio" th:field="*{sex}" th:value="${value.getValue()}" />
+				<label th:for="${#ids.prev('sex')}" th:text="${value.getText()}">性別</label>
+			</dd>
+		</dl>
+		<button type="submit" name="_event_proceed">次へ</button>
+		<!-- <input type="submit" name="_event_proceed" value="次へ" /> -->
+	</form>
 </body>
 </html>
