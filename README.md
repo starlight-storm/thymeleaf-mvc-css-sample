@@ -1,2 +1,1 @@
-# thymeleaf-mvc-css-sample
-作成中！？実験中!?
+画像置き場
