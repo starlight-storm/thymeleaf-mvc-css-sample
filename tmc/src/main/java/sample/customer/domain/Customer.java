@@ -1,4 +1,4 @@
-package sample.customer.biz.domain;
+package sample.customer.domain;
 
 import javax.validation.constraints.AssertFalse;
 

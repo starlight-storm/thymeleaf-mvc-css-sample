@@ -1,8 +1,8 @@
-package sample.customer.biz.service;
-
-import sample.customer.biz.domain.Customer;
+package sample.customer.application;
 
 import java.util.List;
+
+import sample.customer.domain.Customer;
 
 public interface CustomerService {
     public List<Customer> findAll();

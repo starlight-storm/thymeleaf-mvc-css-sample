@@ -1,4 +1,4 @@
-package sample.customer.values;
+package sample.customer.util.values;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

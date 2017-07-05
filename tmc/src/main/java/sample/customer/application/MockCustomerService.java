@@ -1,8 +1,8 @@
-package sample.customer.biz.service;
+package sample.customer.application;
 
-import static sample.customer.values.CustomerRankValues.GOLD;
-import static sample.customer.values.CustomerRankValues.SILVER;
-import static sample.customer.values.CustomerSexValues.MALE;
+import static sample.customer.util.values.CustomerRankValues.GOLD;
+import static sample.customer.util.values.CustomerRankValues.SILVER;
+import static sample.customer.util.values.CustomerSexValues.MALE;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import sample.customer.biz.domain.Customer;
+import sample.customer.domain.Customer;
 
 @Service("customerService")
 public class MockCustomerService implements CustomerService {

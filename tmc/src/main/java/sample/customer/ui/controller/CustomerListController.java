@@ -1,4 +1,4 @@
-package sample.customer.web.controller;
+package sample.customer.ui.controller;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import sample.customer.biz.domain.Customer;
-import sample.customer.biz.service.CustomerService;
-import sample.customer.biz.service.DataNotFoundException;
+import sample.customer.application.CustomerService;
+import sample.customer.application.DataNotFoundException;
+import sample.customer.domain.Customer;
 
 @Controller
 public class CustomerListController {

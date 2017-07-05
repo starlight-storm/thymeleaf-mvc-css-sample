@@ -1,4 +1,4 @@
-package sample.customer.web.controller;
+package sample.customer.ui.controller;
 
 import javax.validation.Valid;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import sample.customer.biz.domain.Customer;
-import sample.customer.biz.service.CustomerService;
-import sample.customer.biz.service.DataNotFoundException;
+import sample.customer.application.CustomerService;
+import sample.customer.application.DataNotFoundException;
+import sample.customer.domain.Customer;
 
 @Controller
 @RequestMapping("/customer/{customerId}")

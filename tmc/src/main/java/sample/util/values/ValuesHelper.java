@@ -1,20 +1,26 @@
 package sample.util.values;
 
-import com.google.common.reflect.ClassPath;
-import org.springframework.stereotype.Component;
-
 import java.io.IOException;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+import com.google.common.reflect.ClassPath;
+
 @Component("vh")
+@Lazy
 public class ValuesHelper {
+	@Value("${app.values}")
+	private String values;
 
     private final Map<String, String> valuesObjList;
 
     private ValuesHelper() throws IOException {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        valuesObjList = ClassPath.from(loader).getTopLevelClassesRecursive("sample.customer.values")
+        valuesObjList = ClassPath.from(loader).getTopLevelClassesRecursive(values)
                 .stream()
                 .filter(classInfo -> {
                     try {
