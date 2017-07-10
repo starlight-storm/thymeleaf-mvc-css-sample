@@ -26,20 +26,20 @@ public class Customer implements java.io.Serializable {
     private String emailAddress;
     
     @NotBlank
-    private String rank;
+    private String type;
     
     @NotBlank
-    private String sex;
+    private String graduate;
 
     public Customer() {
     }
     
-    public Customer(String name, String address, String emailAddress, String rank, String sex) {
+    public Customer(String name, String address, String emailAddress, String type, String graduate) {
         this.name = name;
         this.address = address;
         this.emailAddress = emailAddress;
-        this.rank = rank;
-        this.sex = sex;
+        this.type = type;
+        this.graduate = graduate;
     }
 
     @AssertFalse(message = "{errors.ngemail}")

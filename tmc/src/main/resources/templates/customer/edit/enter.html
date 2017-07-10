@@ -7,14 +7,14 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
 	rel="stylesheet" media="screen" />
-<title>入力画面</title>
+<title th:text="#{title.enter}">入力画面</title>
 </head>
 <body>
 	<form method="post" th:object="${editCustomer}" class="form-horizontal">
 		<fieldset>
-		<legend>入力画面</legend>
+		<legend th:text="#{title.enter}">入力画面</legend>
 		<div class="form-group">
-			<label class="col col-md-2" th:text="#{name}">NAME</label>
+			<label class="col col-md-2" th:text="#{label.name}">NAME</label>
 			<div class="col col-md-10">
 				<input type="text" class="form-control" placeholder="名前を入力してください" th:field="*{name}" />
 				<span class="text-danger" role="alert"
@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col col-md-2" th:text="#{address}">ADDRESS</label>
+			<label class="col col-md-2" th:text="#{label.address}">ADDRESS</label>
 			<div class="col col-md-10">
 				<input type="text" class="form-control" placeholder="住所を入力してください" th:field="*{address}" />
 				<span class="text-danger" role="alert"
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col col-md-2" th:text="#{emailAddress}">E-Mail</label>
+			<label class="col col-md-2" th:text="#{label.emailAddress}">E-Mail</label>
 			<div class="col col-md-10">
 				<input type="text" class="form-control" placeholder="メールアドレスを入力してください" th:field="*{emailAddress}" />
 				<span class="text-danger" role="alert"
@@ -41,24 +41,24 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col col-md-2" th:text="#{rank}">RANK</label>
+			<label class="col col-md-2" th:text="#{label.type}">TYPE</label>
 			<div class="col col-md-10">
-				<select th:field="*{rank}">
-					<option th:each="value : ${@vh.values('CustomerRankValues')}"
+				<select th:field="*{type}">
+					<option th:each="value : ${@vh.values('CustomerTypeValues')}"
 						th:value="${value.getValue()}" th:text="${value.getText()}">シルバー</option>
 				</select>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col col-md-2" th:text="#{sex}">SEX</label>
+			<label class="col col-md-2" th:text="#{label.graduate}">GRADUATE</label>
 			<div class="col col-md-10">
-			<div th:each="value : ${@vh.values('CustomerSexValues')}">
-				<input type="radio" th:field="*{sex}" th:value="${value.getValue()}" />
-				<label th:for="${#ids.prev('sex')}" th:text="${value.getText()}">性別</label>
+			<div th:each="value : ${@vh.values('CustomerGraduateValues')}">
+				<input type="radio" th:field="*{graduate}" th:value="${value.getValue()}" />
+				<label th:for="${#ids.prev('graduate')}" th:text="${value.getText()}">出身</label>
 			</div>
 			</div>
 		</div>
-		<button type="submit" name="_event_proceed" class="btn btn-default">次へ</button>
+		<button type="submit" name="_event_proceed" class="btn btn-default" th:text="#{button.next}">次へ</button>
 		</fieldset>
 	</form>
 

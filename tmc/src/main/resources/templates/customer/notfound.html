@@ -7,13 +7,13 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
 	rel="stylesheet" media="screen" />
-<title>指定された顧客は見つかりません</title>
+<title th:text="#{title.notfound}">顧客なし</title>
 </head>
 <body>
 	<div class="container">
-		<div class="alert alert-warning">指定された顧客は見つかりません。</div>
+		<div class="alert alert-warning" th:text="#{error.notfound}">指定された顧客は見つかりません。</div>
 		<a href="http://www.starlight-storm.com/" th:href="@{/customer}"
-			class="btn btn-default">一覧画面へ戻る</a>
+			class="btn btn-default" th:text="#{button.returnlist}">一覧画面へ戻る</a>
 	</div>
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"

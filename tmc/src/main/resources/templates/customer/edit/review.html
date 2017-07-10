@@ -7,36 +7,36 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
 	rel="stylesheet" media="screen" />
-<title>確認画面</title>
+<title th:text="#{title.review}">確認画面</title>
 </head>
 <body>
 	<form method="post">
 		<fieldset>
-			<legend>確認画面</legend>
+			<legend th:text="#{title.review}">確認画面</legend>
 			<div class="form-group">
-				<label class="col col-md-2" th:text="#{name}">NAME</label>
+				<label class="col col-md-2" th:text="#{label.name}">NAME</label>
 				<output class="col col-md-2" th:text="${editCustomer.name}">佐藤</output>
 			</div>
 			<div class="form-group">
-				<label class="col col-md-2" th:text="#{address}">ADDRESS</label>
+				<label class="col col-md-2" th:text="#{label.address}">ADDRESS</label>
 				<output class="col col-md-2" th:text="${editCustomer.address}">福島</output>
 			</div>
 			<div class="form-group">
-				<label class="col col-md-2" th:text="#{emailAddress}">E-MAIL</label>
+				<label class="col col-md-2" th:text="#{label.emailAddress}">E-MAIL</label>
 				<output class="col col-md-2" th:text="${editCustomer.emailAddress}">satou@fuga.com</output>
 			</div>
 			<div class="form-group">
-				<label class="col col-md-2" th:text="#{rank}">RANK</label>
+				<label class="col col-md-2" th:text="#{label.type}">TYPE</label>
 				<output class="col col-md-2"
-					th:text="${@vh.getText('CustomerRankValues', editCustomer.rank)}">シルバー</output>
+					th:text="${@vh.getText('CustomerTypeValues', editCustomer.type)}">シルバー</output>
 			</div>
 			<div class="form-group">
-				<label class="col col-md-2" th:text="#{sex}">SEX</label>
+				<label class="col col-md-2" th:text="#{label.graduate}">GRADUATE</label>
 				<output class="col col-md-2"
-					th:text="${@vh.getText('CustomerSexValues', editCustomer.sex)}">男</output>
+					th:text="${@vh.getText('CustomerGraduateValues', editCustomer.graduate)}">日本</output>
 			</div>
-			<button type="submit" name="_event_confirmed" class="btn btn-default">更新</button>
-			<button type="submit" name="_event_revise" class="btn btn-default">再入力</button>
+			<button type="submit" name="_event_confirmed" class="btn btn-default" th:text="#{button.reedit}">更新</button>
+			<button type="submit" name="_event_revise" class="btn btn-default" th:text="#{button.reentry}">再入力</button>
 		</fieldset>
 	</form>
 	<script

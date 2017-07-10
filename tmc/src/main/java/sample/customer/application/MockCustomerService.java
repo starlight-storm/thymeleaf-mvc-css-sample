@@ -1,8 +1,9 @@
 package sample.customer.application;
 
-import static sample.customer.util.values.CustomerRankValues.GOLD;
-import static sample.customer.util.values.CustomerRankValues.SILVER;
-import static sample.customer.util.values.CustomerSexValues.MALE;
+import static sample.customer.util.values.CustomerGraduateValues.JAPAN;
+import static sample.customer.util.values.CustomerGraduateValues.OTHER;
+import static sample.customer.util.values.CustomerTypeValues.GOLD;
+import static sample.customer.util.values.CustomerTypeValues.SILVER;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -67,9 +68,9 @@ public class MockCustomerService implements CustomerService {
     public void initCustomer() {
         nextId = 1;
 
-        register(new Customer("太郎", "東京都新宿区", "taro@aa.bb.cc", GOLD.getValue(), MALE.getValue()));
-        register(new Customer("次郎", "東京都豊島区", "jiro@aa.bb.cc", GOLD.getValue(), MALE.getValue()));
-        register(new Customer("三郎", "東京都板橋区", "sabu@aa.bb.cc", SILVER.getValue(), MALE.getValue()));
+        register(new Customer("太郎", "東京都新宿区", "taro@aa.bb.cc", GOLD.getValue(), JAPAN.getValue()));
+        register(new Customer("ジロー", "東京都豊島区", "jiro@aa.bb.cc", GOLD.getValue(), OTHER.getValue()));
+        register(new Customer("三郎", "東京都板橋区", "sabu@aa.bb.cc", SILVER.getValue(), JAPAN.getValue()));
     }
 
     private Customer newCustomer(Customer orig) {

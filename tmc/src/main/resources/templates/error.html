@@ -11,9 +11,9 @@
 </head>
 <body>
 	<div class="container">
-		<div class="alert alert-danger">
-			エラーが発生しました。<a th:href="@{/}" href="http://www.starlight-storm.com/">ホーム</a>に戻ってやり直してください。
-		</div>
+		<div class="alert alert-danger" th:text="#{error.occurrence}">予期しないエラーが発生しました。</div>
+		<a href="http://www.starlight-storm.com/" th:href="@{/}"
+			class="btn btn-default" th:text="#{button.returnlist}">一覧画面へ戻る</a>
 	</div>
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"

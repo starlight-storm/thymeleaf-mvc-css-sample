@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
-<title>顧客一覧画面</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+<title th:text="#{title.list}">顧客一覧画面</title>
 </head>
 <body>
-	<h1>顧客一覧画面</h1>
+	<h1 th:text="#{title.list}">顧客一覧画面</h1>
 	<div class="table-responsive">
-	<table class="table table-striped table-bordered table-condensed">
-		<thead>
-			<tr>
-				<th th:text="#{id}">ID</th>
-				<th th:text="#{name}">NAME</th>
-				<th th:text="#{address}">ADDRESS</th>
-				<th th:text="#{emailAddress}">E-MAIL</th>
-				<th th:text="#{rank}">RANK</th>
-				<th th:text="#{sex}">SEX</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody th:remove="all-but-first">
-			<tr th:each="customer : ${customers}">
-				<td th:text="${customer.id}">1</td>
-				<td th:text="${customer.name}">山田</td>
-				<td th:text="${customer.address}">東京</td>
-				<td th:text="${customer.emailAddress}">yamada@hoge.com</td>
-				<td th:text="${@vh.getText('CustomerRankValues', customer.rank)}">シルバー</td>
-				<td th:text="${@vh.getText('CustomerSexValues', customer.sex)}">男</td>
-				<td><a href="http://www.starlight-storm.com/" class="btn btn-default" th:href="@{/customer/{id}(id=${customer.id})}">詳細</a>
-					<a href="http://www.starlight-storm.com/" class="btn btn-default" th:href="@{/customer/{id}/edit(id=${customer.id})}">編集</a>
-				</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>鈴木</td>
-				<td>北海道</td>
-				<td>suzuki@foo.jp</td>
-				<td>シルバー</td>
-				<td>男</td>
-				<td>
-					<a href="http://www.starlight-storm.com/" class="btn btn-default">詳細</a>
-					<a href="http://www.starlight-storm.com/" class="btn btn-default">編集</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th th:text="#{label.id}">ID</th>
+					<th th:text="#{label.name}">NAME</th>
+					<th th:text="#{label.address}">ADDRESS</th>
+					<th th:text="#{label.emailAddress}">E-MAIL</th>
+					<th th:text="#{label.type}">RANK</th>
+					<th th:text="#{label.graduate}">GRADUATE</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody th:remove="all-but-first">
+				<tr th:each="customer : ${customers}">
+					<td th:text="${customer.id}">1</td>
+					<td th:text="${customer.name}">山田</td>
+					<td th:text="${customer.address}">東京</td>
+					<td th:text="${customer.emailAddress}">yamada@hoge.com</td>
+					<td th:text="${@vh.getText('CustomerTypeValues', customer.type)}">シルバー</td>
+					<td th:text="${@vh.getText('CustomerGraduateValues', customer.graduate)}">日本</td>
+					<td>
+						<a href="http://www.starlight-storm.com/" class="btn btn-default"
+						th:href="@{/customer/{id}(id=${customer.id})}" th:text="#{button.detail}">詳細</a> 
+						<a href="http://www.starlight-storm.com/" class="btn btn-default"
+						th:href="@{/customer/{id}/edit(id=${customer.id})}" th:text="#{button.edit}">編集</a>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>鈴木</td>
+					<td>北海道</td>
+					<td>suzuki@foo.jp</td>
+					<td>シルバー</td>
+					<td>日本以外</td>
+					<td><a href="http://www.starlight-storm.com/" class="btn btn-default">詳細</a>
+						<a href="http://www.starlight-storm.com/" class="btn btn-default">編集</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
-        th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+		th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 </body>
 </html>

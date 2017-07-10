@@ -6,8 +6,8 @@ import sample.util.values.Values;
 
 @Getter
 @AllArgsConstructor
-public enum CustomerSexValues implements Values {
-	MALE("1", "MALE"), FEMAIL("2", "FEMALE"), OTHER("3", "OTHER");
+public enum CustomerGraduateValues implements Values {
+	JAPAN("1", "日本"), OTHER("2", "日本以外");
 
 	private final String value;
 	private final String text;

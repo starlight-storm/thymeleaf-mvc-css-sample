@@ -6,7 +6,7 @@ import sample.util.values.Values;
 
 @Getter
 @AllArgsConstructor
-public enum CustomerRankValues implements Values {
+public enum CustomerTypeValues implements Values {
 	PLATINUM("1", "プラチナ"), GOLD("2", "ゴールド"), SILVER("3", "シルバー");
 
 	private final String value;
