@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>エラー</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+<title>エラー</title>
 </head>
 <body>
-    <div class="container">
-        <div class="alert alert-danger">
-        エラーが発生しました。<a th:href="@{/}" href="http://www.starlight-storm.com/">ホーム</a>に戻ってやり直してください。
-        </div>
-    </div>
+	<div class="container">
+		<div class="alert alert-danger">
+			エラーが発生しました。<a th:href="@{/}" href="http://www.starlight-storm.com/">ホーム</a>に戻ってやり直してください。
+		</div>
+	</div>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+		th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 </body>
 </html>

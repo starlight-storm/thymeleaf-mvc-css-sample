@@ -14,13 +14,14 @@ import com.google.common.reflect.ClassPath;
 @Lazy
 public class ValuesHelper {
 	@Value("${app.values}")
-	private String values;
+	private static String values;
 
     private final Map<String, String> valuesObjList;
 
     private ValuesHelper() throws IOException {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        valuesObjList = ClassPath.from(loader).getTopLevelClassesRecursive(values)
+        // valuesObjList = ClassPath.from(loader).getTopLevelClassesRecursive(values)
+        valuesObjList = ClassPath.from(loader).getTopLevelClassesRecursive("sample.customer.util.values")
                 .stream()
                 .filter(classInfo -> {
                     try {
