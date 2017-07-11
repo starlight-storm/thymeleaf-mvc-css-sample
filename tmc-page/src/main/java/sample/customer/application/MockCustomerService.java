@@ -70,10 +70,12 @@ public class MockCustomerService implements CustomerService {
 
         register(new Customer("太郎", "東京都新宿区", "taro@aa.bb.cc", GOLD.getValue(), JAPAN.getValue()));
         register(new Customer("ジロー", "東京都豊島区", "jiro@aa.bb.cc", GOLD.getValue(), OTHER.getValue()));
-        register(new Customer("三郎", "東京都板橋区", "sabu@aa.bb.cc", SILVER.getValue(), JAPAN.getValue()));
-        register(new Customer("四郎", "東京都板橋区", "sabu@aa.bb.cc", SILVER.getValue(), JAPAN.getValue()));
-        register(new Customer("ゴロー", "東京都板橋区", "sabu@aa.bb.cc", SILVER.getValue(), OTHER.getValue()));
-        register(new Customer("花子", "東京都板橋区", "sabu@aa.bb.cc", SILVER.getValue(), JAPAN.getValue()));
+        register(new Customer("三郎", "長野県松本市", "sabu@aa.bb.cc", SILVER.getValue(), JAPAN.getValue()));
+        register(new Customer("四郎", "東京都足立区", "siro@aa.bb.cc", SILVER.getValue(), JAPAN.getValue()));
+        register(new Customer("ゴロー", "山梨県甲府市", "goro@aa.bb.cc", SILVER.getValue(), OTHER.getValue()));
+        register(new Customer("花子", "福島県郡山市", "hanako@aa.bb.cc", GOLD.getValue(), JAPAN.getValue()));
+        register(new Customer("美子", "北海道登別市", "yoshiko@aa.bb.cc", SILVER.getValue(), JAPAN.getValue()));
+        register(new Customer("ナオミ", "沖縄県那覇市", "sabu@aa.bb.cc", GOLD.getValue(), OTHER.getValue()));
     }
 
     private Customer newCustomer(Customer orig) {
