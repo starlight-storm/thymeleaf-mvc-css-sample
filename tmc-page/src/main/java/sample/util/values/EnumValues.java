@@ -1,6 +1,6 @@
 package sample.util.values;
 
-public interface Values {
+public interface EnumValues {
 	String getValue();
 	String getText();
 }

@@ -30,8 +30,8 @@
 					<td th:text="${customer.name}">山田</td>
 					<td th:text="${customer.address}">東京</td>
 					<td th:text="${customer.email}">yamada@hoge.com</td>
-					<td th:text="${@vh.getText('CustomerTypeValues', customer.membershipType)}">シルバー</td>
-					<td th:text="${@vh.getText('CustomerGraduateValues', customer.graduate)}">日本</td>
+					<td th:text="${@eh.getText('CustomerTypeValues', customer.membershipType)}">シルバー</td>
+					<td th:text="${@eh.getText('CustomerGraduateValues', customer.graduate)}">日本</td>
 					<td>
 						<a href="http://www.starlight-storm.com/" class="btn btn-default"
 						th:href="@{/customer/{id}(id=${customer.id})}" th:text="#{button.detail}">詳細</a> 

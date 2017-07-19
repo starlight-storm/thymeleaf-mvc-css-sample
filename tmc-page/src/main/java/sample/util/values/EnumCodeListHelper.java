@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 import com.google.common.reflect.ClassPath;
 
-@Component("vh")
-public class ValuesHelper {
+@Component("eh")
+public class EnumCodeListHelper {
 	@Value("${app.values}")
 	private String values;
 
@@ -21,7 +21,7 @@ public class ValuesHelper {
 		valuesObjList = ClassPath.from(loader).getTopLevelClassesRecursive(values).stream().filter(classInfo -> {
 			try {
 				Class<?> clazz = Class.forName(classInfo.getName());
-				return !clazz.equals(Values.class) && Values.class.isAssignableFrom(clazz);
+				return !clazz.equals(EnumValues.class) && EnumValues.class.isAssignableFrom(clazz);
 			} catch (ClassNotFoundException e) {
 				throw new RuntimeException(e);
 			}
@@ -30,23 +30,23 @@ public class ValuesHelper {
 
 	private Map<String, String> valuesObjList;
 
-	private ValuesHelper() {}
+	private EnumCodeListHelper() {}
 
 	@SuppressWarnings("unchecked")
-	public <T extends Enum<T> & Values> String getValue(String classSimpleName, String valueName)
+	public <T extends Enum<T> & EnumValues> String getValue(String classSimpleName, String valueName)
 			throws ClassNotFoundException {
 		Class<T> enumType = (Class<T>) Class.forName(this.valuesObjList.get(classSimpleName));
 		T val = Enum.valueOf(enumType, valueName);
 		return val.getValue();
 	}
 
-	public <T extends Enum<T> & Values> String getValue(Class<T> enumType, String valueName) {
+	public <T extends Enum<T> & EnumValues> String getValue(Class<T> enumType, String valueName) {
 		T val = Enum.valueOf(enumType, valueName);
 		return val.getValue();
 	}
 
 	@SuppressWarnings("unchecked")
-	public <T extends Enum<T> & Values> String getText(String classSimpleName, String value)
+	public <T extends Enum<T> & EnumValues> String getText(String classSimpleName, String value)
 			throws ClassNotFoundException {
 		Class<T> enumType = (Class<T>) Class.forName(this.valuesObjList.get(classSimpleName));
 		String result = "";
@@ -59,7 +59,7 @@ public class ValuesHelper {
 		return result;
 	}
 
-	public <T extends Enum<T> & Values> String getText(Class<T> enumType, String value) {
+	public <T extends Enum<T> & EnumValues> String getText(Class<T> enumType, String value) {
 		String result = "";
 		for (T val : enumType.getEnumConstants()) {
 			if (val.getValue().equals(value)) {
@@ -71,7 +71,7 @@ public class ValuesHelper {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <T extends Enum<T> & Values> T[] values(String classSimpleName) throws ClassNotFoundException {
+	public <T extends Enum<T> & EnumValues> T[] values(String classSimpleName) throws ClassNotFoundException {
 		Class<T> enumType = (Class<T>) Class.forName(this.valuesObjList.get(classSimpleName));
 		return enumType.getEnumConstants();
 	}
