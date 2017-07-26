@@ -39,6 +39,17 @@
 						th:href="@{/customer/{id}/edit(id=${customer.id})}" th:text="#{button.edit}">編集</a>
 					</td>
 				</tr>
+				<tr>
+					<td>2</td>
+					<td>鈴木</td>
+					<td>北海道</td>
+					<td>suzuki@foo.jp</td>
+					<td>シルバー</td>
+					<td>日本以外</td>
+					<td><a href="http://www.starlight-storm.com/" class="btn btn-default">詳細</a>
+						<a href="http://www.starlight-storm.com/" class="btn btn-default">編集</a>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 		<a th:if="${!customers.firstPage}" 

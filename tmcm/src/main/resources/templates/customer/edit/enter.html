@@ -44,7 +44,7 @@
 			<label class="col col-md-2" th:text="#{label.membershipType}">TYPE</label>
 			<div class="col col-md-10">
 				<select th:field="*{membershipType}">
-					<option th:each="value : ${@vh.values('CustomerTypeValues')}"
+					<option th:each="value : ${@eh.values('CustomerTypeValues')}"
 						th:value="${value.getValue()}" th:text="${value.getText()}">シルバー</option>
 				</select>
 			</div>
@@ -52,7 +52,7 @@
 		<div class="form-group">
 			<label class="col col-md-2" th:text="#{label.graduate}">GRADUATE</label>
 			<div class="col col-md-10">
-			<div th:each="value : ${@vh.values('CustomerGraduateValues')}">
+			<div th:each="value : ${@eh.values('CustomerGraduateValues')}">
 				<input type="radio" th:field="*{graduate}" th:value="${value.getValue()}" />
 				<label th:for="${#ids.prev('graduate')}" th:text="${value.getText()}">出身</label>
 			</div>

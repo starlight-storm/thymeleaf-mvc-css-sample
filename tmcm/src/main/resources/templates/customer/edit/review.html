@@ -28,12 +28,12 @@
 			<div class="form-group">
 				<label class="col col-md-2" th:text="#{label.membershipType}">TYPE</label>
 				<output class="col col-md-2"
-					th:text="${@vh.getText('CustomerTypeValues', editCustomer.membershipType)}">シルバー</output>
+					th:text="${@eh.getText('CustomerTypeValues', editCustomer.membershipType)}">シルバー</output>
 			</div>
 			<div class="form-group">
 				<label class="col col-md-2" th:text="#{label.graduate}">GRADUATE</label>
 				<output class="col col-md-2"
-					th:text="${@vh.getText('CustomerGraduateValues', editCustomer.graduate)}">日本</output>
+					th:text="${@eh.getText('CustomerGraduateValues', editCustomer.graduate)}">日本</output>
 			</div>
 		</fieldset>
 		<button type="submit" name="_event_confirmed" class="btn btn-default" th:text="#{button.reedit}">更新</button>

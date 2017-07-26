@@ -3,7 +3,7 @@ package sample.customer.application;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.beanutils.BeanUtils;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,13 +19,16 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private CustomerRepository repository;
+	
+	@Autowired
+	private Mapper beanMapper;
 
 	@Override
 	public List<CustomerDto> findAll() {
 		List<Customer> customerList = repository.findAll();
 		List<CustomerDto> customers = new LinkedList<CustomerDto>();
 		for (Customer customer : customerList) {
-			CustomerDto dto = newCustomerDto(customer);
+			CustomerDto dto = beanMapper.map(customer, CustomerDto.class);
 			customers.add(dto);
     	}
 		return customers;
@@ -34,12 +37,12 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public CustomerDto findById(int id) throws DataNotFoundException {
         Customer customer = repository.findById(id);
-        return newCustomerDto(customer);
+        return beanMapper.map(customer, CustomerDto.class);
 	}
 
 	@Override
 	public void update(CustomerDto customerDto) throws DataNotFoundException {
-		Customer customer = newCustomer(customerDto);
+		Customer customer = beanMapper.map(customerDto, Customer.class);
 		repository.update(customer);
 	}
 	
@@ -53,24 +56,4 @@ public class CustomerServiceImpl implements CustomerService {
 	public void delete(int id) throws DataNotFoundException {
 		// TODO 作る予定ないよ.
 	}
-	
-    private Customer newCustomer(CustomerDto orig) {
-    	try {
-    		Customer dest = new Customer();
-    		BeanUtils.copyProperties(dest, orig);
-    		return dest;
-    	} catch (Exception e) {
-    		throw new RuntimeException("Exception threw in CustomerDto copy ", e);
-    	}
-	}
-
-	private CustomerDto newCustomerDto(Customer orig) {
-    	try {
-    		CustomerDto dest = new CustomerDto();
-    		BeanUtils.copyProperties(dest, orig);
-    		return dest;
-    	} catch (Exception e) {
-    		throw new RuntimeException("Exception threw in Customer copy ", e);
-    	}
-    }
 }
