@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
 @Configuration
-public class MappingConfiguration {
+public class DozerBeanMappingConfiguration {
 
     @Bean
     public DozerBeanMapperFactoryBean dozerBeanMapperFactoryBean(@Value("classpath*:/dozer/**/*-mapping.xml") Resource[] resources) throws Exception {

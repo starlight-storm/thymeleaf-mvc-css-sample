@@ -27,12 +27,12 @@
 			<div class="form-group">
 				<label class="col col-md-2" th:text="#{label.membershipType}">TYPE</label>
 				<output class="col col-md-2"
-					th:text="${@vh.getText('CustomerTypeValues', customer.membershipType)}">シルバー</output>
+					th:text="${@eh.getText('CustomerTypeValues', customer.membershipType)}">シルバー</output>
 			</div>
 			<div class="form-group">
 				<label class="col col-md-2" th:text="#{label.graduate}">GRADUATE</label>
 				<output class="col col-md-2"
-					th:text="${@vh.getText('CustomerGraduateValues', customer.graduate)}">日本</output>
+					th:text="${@eh.getText('CustomerGraduateValues', customer.graduate)}">日本</output>
 			</div>			
 		</fieldset>
 		<a href="http://www.starlight-storm.com/" class="btn btn-default" th:href="@{/customer}" th:text="#{button.returnlist}">一覧</a>

@@ -14,7 +14,7 @@ import sample.common.exception.DataNotFoundException;
 import sample.customer.domain.dto.CustomerDto;
 
 @Service
-@Transactional
+//@Transactional
 public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
