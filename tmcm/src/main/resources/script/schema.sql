@@ -1,5 +1,6 @@
-DROP TABLE IF EXISTS customer;
-CREATE TABLE customer(
+CREATE SCHEMA sample authorization dba;
+DROP TABLE IF EXISTS sample.customer;
+CREATE TABLE sample.customer(
     id INTEGER IDENTITY PRIMARY KEY,
     name VARCHAR(20),
     address VARCHAR(20),
