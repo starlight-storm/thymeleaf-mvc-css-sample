@@ -9,7 +9,8 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     
     <aop:config>
-        <aop:pointcut id="txApplicationPointcut" expression="execution(* *..*Service.*(..))"/>
+        <!-- <aop:pointcut id="txApplicationPointcut" expression="execution(* *..*Service.*(..))"/> -->
+        <aop:pointcut id="txApplicationPointcut" expression="within(@org.springframework.stereotype.Service *)"/>
         <aop:advisor advice-ref="transactionAdvice" pointcut-ref="txApplicationPointcut"/>
     </aop:config>
     <tx:advice id="transactionAdvice">
