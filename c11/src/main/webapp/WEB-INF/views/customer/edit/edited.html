@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+<title th:text="#{title.edited}">更新完了</title>
+</head>
+<body>
+	<fieldset>
+		<legend th:text="#{title.edited}">更新完了</legend>
+		<div class="form-group">
+		<label class="col col-md-2" th:text="#{label.name}">NAME</label>
+		<output class="col col-md-2" th:text="${editCustomer.name}">佐藤</output>
+		</div>
+		<div class="form-group">
+		<label class="col col-md-2" th:text="#{label.address}">ADDRESS</label>
+		<output class="col col-md-2" th:text="${editCustomer.address}">福島</output>
+		</div>
+		<div class="form-group">
+		<label class="col col-md-2" th:text="#{label.email}">E-MAIL</label>
+		<output class="col col-md-2" th:text="${editCustomer.email}">satou@fuga.com</output>
+		</div>
+	</fieldset>
+	<a href="http://www.starlight-storm.com/" class="btn btn-default"
+			th:href="@{/customer}" th:text="#{button.return}">戻る</a>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+		th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+<title th:text="#{title.enter}">入力画面</title>
+</head>
+<body>
+	<form method="post" th:object="${editCustomer}" class="form-horizontal">
+		<fieldset>
+		<legend th:text="#{title.enter}">入力画面</legend>
+		<div class="form-group">
+			<label class="col col-md-2" th:text="#{label.name}">NAME</label>
+			<div class="col col-md-10">
+				<input type="text" class="form-control" placeholder="名前を入力してください" th:field="*{name}" />
+				<span class="text-danger" role="alert"
+					th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col col-md-2" th:text="#{label.address}">ADDRESS</label>
+			<div class="col col-md-10">
+				<input type="text" class="form-control" placeholder="住所を入力してください" th:field="*{address}" />
+				<span class="text-danger" role="alert"
+					th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col col-md-2" th:text="#{label.email}">E-Mail</label>
+			<div class="col col-md-10">
+				<input type="text" class="form-control" placeholder="メールアドレスを入力してください" th:field="*{email}" />
+				<span class="text-danger" role="alert"
+					th:if="${#fields.hasErrors('email')}"
+					th:errors="*{email}">E-Mail Error</span>
+				<span class="text-danger" role="alert"
+					th:if="${#fields.hasErrors('ngEmail')}" th:errors="*{ngEmail}">E-Mail Error</span>
+			</div>
+		</div>	
+		</fieldset>
+		<button type="submit" name="_event_proceed" class="btn btn-default" th:text="#{button.next}">次へ</button>
+	</form>
+
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+		th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</body>
+</html>
